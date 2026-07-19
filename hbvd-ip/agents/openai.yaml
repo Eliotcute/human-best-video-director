@@ -1,0 +1,4 @@
+interface:
+  display_name: "IP与创始人故事"
+  short_description: "从真实身份经历业务目标与信任障碍建立可信人物表达系统"
+  default_prompt: "使用 $hbvd-ip 为我建立真实IP或创始人故事。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "选题决策"
+  short_description: "根据用户使命真实证据账号阶段和产能选择最值得执行的选题"
+  default_prompt: "使用 $hbvd-topic 判断并选择一个最值得执行的选题。"
