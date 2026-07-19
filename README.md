@@ -161,34 +161,35 @@
 ## 工作方式
 
 ```mermaid
-flowchart TD
-    A[用户自然语言需求] --> B{信息是否足以完成本次交付}
-    B -- 否 --> C[最多询问三个关键问题]
-    C --> D[合并用户答案]
-    B -- 是 --> E[编译为内部任务合同]
-    D --> E
-    E --> F{判断本次交付范围}
-    F --> G[账号 / IP / 选题]
-    F --> H[钩子 / 脚本]
-    F --> I[审稿 / 数据复盘]
-    F --> J[编导训练]
-    G --> K[继承前序事实、限制与结论]
-    H --> K
-    I --> K
-    J --> K
-    K --> L[整合为用户可直接使用的结果]
-    L --> M[对照原始目标、交付物和限制验收]
+%%{init: {"theme":"base","themeVariables":{"background":"#ffffff","primaryColor":"#eff6ff","primaryTextColor":"#172033","primaryBorderColor":"#93c5fd","lineColor":"#94a3b8","secondaryColor":"#f5f3ff","tertiaryColor":"#ecfdf5","fontFamily":"-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"},"flowchart":{"curve":"basis"}}}%%
+flowchart LR
+    U(["用户需求"]) --> G{"信息充分？"}
+    G -- "否" --> Q["最多询问 3 个<br/>关键问题"] --> G
+    G -- "是" --> B["编译内部任务合同"]
+    B --> R{"本次交付范围"}
+    R --> A["账号定位 · IP · 选题<br/>account / ip / topic"]
+    R --> C["标题 · 钩子 · 脚本<br/>hook / script"]
+    R --> D["审稿 · 数据复盘<br/>review"]
+    R --> T["编导能力训练<br/>training"]
+    A & C & D & T --> H["继承事实、限制<br/>与前序结论"]
+    H --> O["整合为可直接使用的交付"]
+    O --> V{"符合原始目标与限制？"}
+    V -- "需要修正" --> R
+    V -- "通过" --> Z(["完成"])
+
+    classDef entry fill:#f8fafc,stroke:#94a3b8,color:#172033,stroke-width:1.5px;
+    classDef decision fill:#fff7ed,stroke:#fdba74,color:#9a3412,stroke-width:1.5px;
+    classDef contract fill:#eff6ff,stroke:#93c5fd,color:#1e3a8a,stroke-width:1.5px;
+    classDef skill fill:#f5f3ff,stroke:#c4b5fd,color:#4c1d95,stroke-width:1.5px;
+    classDef result fill:#ecfdf5,stroke:#86efac,color:#166534,stroke-width:1.5px;
+    class U,Q entry;
+    class G,R,V decision;
+    class B,H contract;
+    class A,C,D,T skill;
+    class O,Z result;
 ```
 
-内部任务合同用于在多个 Skill 之间传递上下文，默认不会展示给用户。它主要保存：
-
-- 用户真正要完成的结果
-- 当前主要任务和交付物
-- 目标用户、场景、平台与账号阶段
-- 用户确认的事实、素材和数据
-- 时间、预算、人员、时长与出镜限制
-- 尚未确认的假设与关键未知
-- 什么样的交付才算完成
+内部任务合同用于在多个 Skill 之间传递上下文，默认不会展示给用户。它保存原始目标、交付物、目标用户、平台与账号阶段、已确认的事实和素材、生产限制、尚未确认的假设，以及本次任务的验收标准。
 
 专项 Skill 读取同一份上下文，不应反复询问用户已经回答过的信息。
 
