@@ -383,11 +383,38 @@ mkdir -p ~/.claude/skills
 cp -R human-best-video-director hbvd-* ~/.claude/skills/
 ```
 
-不同版本或团队配置可能使用不同的 Skills 目录，请以当前客户端说明为准。
+Claude Code 原生使用 `SKILL.md`，九个目录一起安装后，可以保留总入口与八个专项 Skill 的完整分工。不同版本或团队配置可能使用不同的 Skills 目录，请以当前客户端说明为准。
+
+### 豆包
+
+豆包电脑端具备自己的 `.skills` 工作区机制，文件格式同样以 `SKILL.md` 为核心。不要只导入最外层的总入口：必须让九个 Skill 都出现在豆包的 Skills 目录或“规则和技能”列表中，否则总入口无法稳定接续八个专项 Skill。
+
+豆包版本和工作区形态更新较快，本仓库暂不写死本机目录。通过 SkillHub 安装后，请先确认列表中是否能看到 `human-best-video-director` 与八个 `hbvd-*` Skill；如果平台只注册了根目录的一个 Skill，这属于部分适配，需要把九个目录分别导入。
+
+### TRAE
+
+TRAE 支持项目级 `.trae/skills`。可把九个 Skill 目录放进当前项目：
+
+```bash
+mkdir -p .trae/skills
+cp -R human-best-video-director hbvd-* .trae/skills/
+```
+
+然后在 TRAE 的“规则和技能”中检查九个 Skill 是否都被索引。TRAE 的调用显示和语法可能与 Codex 的 `$skill-name` 不同；只要九个 Skill 均可被发现，Agent 可以按各自的名称和描述完成路由。如果当前版本只读取单个 Skill，需视为部分适配，不能假定总入口已完成跨 Skill 调度。
+
+### 兼容性怎么判断
+
+| 环境 | 当前判断 | 使用前检查 |
+|---|---|---|
+| Codex | 完整适配，已作为主要测试环境 | 九个 Skill 均出现在可用列表 |
+| Claude Code | 完整适配 `SKILL.md` 与多 Skill 安装 | 九个目录一起复制到 Skills 目录 |
+| 豆包电脑端 | 格式适配；不同版本的导入与子 Skill 注册方式需实机确认 | 列表中同时出现总入口和八个专项 Skill |
+| TRAE | 支持 `.trae/skills`；跨 Skill 调度按当前版本实测 | 九个 Skill 均被索引，再测试一次起号或脚本任务 |
+| 普通聊天模型 | 只能把内容当提示词或知识文件使用 | 不算原生 Skill 兼容，也没有可靠自动路由 |
 
 ### 其他支持 `SKILL.md` 的 Agent
 
-把仓库中的九个 Skill 文件夹复制到该 Agent 的 Skills 搜索目录。如果客户端不支持 `$skill-name` 语法，请使用它自己的调用方式。
+把仓库中的九个 Skill 文件夹复制到该 Agent 的 Skills 搜索目录。判断是否完整适配，不只看它能不能读 `SKILL.md`，还要看九个 Skill 能否被独立发现，以及总入口能否接续专项 Skill。如果客户端不支持 `$skill-name` 语法，请使用它自己的调用方式。
 
 ### 更新
 
