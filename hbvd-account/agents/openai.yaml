@@ -1,4 +1,4 @@
 interface:
   display_name: "账号定位与起号"
-  short_description: "形成账号定位关注理由内容支柱生产方案与最小起号验证实验"
-  default_prompt: "使用 $hbvd-account 为我制定账号定位和起号方案。"
+  short_description: "结合目标用户真实优势和制作条件给出可以马上验证的账号定位与起号方案"
+  default_prompt: "使用 $hbvd-account，根据我的真实条件制定账号定位和起号方案。"

@@ -1,4 +1,4 @@
 interface:
   display_name: "脚本与制作"
-  short_description: "把确认选题转成口播图文镜头素材拍摄清单与制作执行方案"
-  default_prompt: "使用 $hbvd-script 把这个选题做成可直接拍摄的脚本。"
+  short_description: "把已经确认的选题写成可直接使用的文案时间轴镜头安排和拍摄清单"
+  default_prompt: "使用 $hbvd-script，把这个选题写成可以直接拍摄或制作的脚本。"

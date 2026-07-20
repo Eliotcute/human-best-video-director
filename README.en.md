@@ -384,13 +384,13 @@ mkdir -p ~/.claude/skills
 cp -R human-best-video-director hbvd-* ~/.claude/skills/
 ```
 
-Claude Code natively uses `SKILL.md`. Installing all nine folders preserves the main router and the eight specialist Skills. Skill locations can differ by client version or team configuration, so follow the documentation for your current environment.
+Claude Code natively uses `SKILL.md`. Install all nine folders so it can choose the right capability for each request. Skill locations can differ by client version or team configuration, so follow the documentation for your current environment.
 
 ### Doubao
 
-Doubao Desktop has its own `.skills` workspace mechanism and also uses `SKILL.md` as the core file format. Do not import only the top-level router. All nine Skills must appear in Doubao's Skills directory or its Rules and Skills list; otherwise the main Skill cannot reliably hand work to the eight specialist Skills.
+Doubao Desktop has its own `.skills` workspace mechanism and also uses `SKILL.md` as the core file format. Do not import only Human Best Video Director. All nine Skills must appear in Doubao's Skills directory or its Rules and Skills list; otherwise account planning, topic selection, and script writing may not work correctly.
 
-Doubao versions and workspace layouts change quickly, so this repository does not hard-code a local path. After installing through SkillHub, confirm that `human-best-video-director` and all eight `hbvd-*` Skills are listed. If the platform registers only the root Skill, treat the installation as partial compatibility and import the nine folders separately.
+Doubao versions and workspace layouts change quickly, so this repository does not hard-code a local path. After installing through SkillHub, confirm that `human-best-video-director` and all eight `hbvd-*` Skills are listed. If only one appears, import the nine folders separately.
 
 ### TRAE
 
@@ -401,7 +401,7 @@ mkdir -p .trae/skills
 cp -R human-best-video-director hbvd-* .trae/skills/
 ```
 
-Then check TRAE's Rules and Skills view to make sure all nine Skills are indexed. TRAE may display or invoke Skills differently from Codex's `$skill-name` syntax. If all nine Skills are discoverable, the agent can route by their names and descriptions. If the current version reads only one Skill, treat it as partial compatibility rather than assuming that cross-Skill routing works.
+Then check TRAE's Rules and Skills view to make sure all nine Skills appear. TRAE may use a different invocation style from Codex's `$skill-name` syntax, so follow the controls shown by your current version. If only one Skill appears, account planning, topic selection, and script writing may not connect automatically.
 
 ### Compatibility at a glance
 
@@ -409,13 +409,13 @@ Then check TRAE's Rules and Skills view to make sure all nine Skills are indexed
 |---|---|---|
 | Codex | Full support; primary test environment | All nine Skills appear in the available list |
 | Claude Code | Full support for `SKILL.md` and multi-Skill installation | Copy all nine folders into the Skills directory |
-| Doubao Desktop | File-format compatible; import and child-Skill registration vary by version | The main Skill and all eight specialist Skills are listed |
-| TRAE | Supports `.trae/skills`; cross-Skill routing should be tested on the current version | All nine Skills are indexed, then run one account or script task |
-| General chat models | The files can only be used as prompts or knowledge | This is not native Skill support and does not provide reliable routing |
+| Doubao Desktop | Supports the same kind of files; installation varies by version | All nine Skills appear in the list |
+| TRAE | Supports `.trae/skills`; usage varies by version | All nine Skills appear, then run one account or script task |
+| General chat models | The files can only be used as prompts or knowledge | They will not choose and connect the nine Skills automatically |
 
 ### Other agents that support `SKILL.md`
 
-Copy the nine Skill folders into that agent's Skill search directory. Full compatibility requires more than reading `SKILL.md`: the host must discover all nine Skills independently and allow the main Skill to hand work to specialist Skills. If the client does not support `$skill-name`, use its own invocation syntax.
+Copy the nine Skill folders into that agent's Skills directory. Confirm that all nine appear, then run one complete request to check whether it can move from clarification to a topic or script. If the client does not support `$skill-name`, use its own invocation syntax.
 
 ### Updating
 

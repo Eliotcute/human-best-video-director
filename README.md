@@ -383,13 +383,13 @@ mkdir -p ~/.claude/skills
 cp -R human-best-video-director hbvd-* ~/.claude/skills/
 ```
 
-Claude Code 原生使用 `SKILL.md`，九个目录一起安装后，可以保留总入口与八个专项 Skill 的完整分工。不同版本或团队配置可能使用不同的 Skills 目录，请以当前客户端说明为准。
+Claude Code 原生使用 `SKILL.md`。九个目录一起安装后，系统才能根据你的问题选择正确的功能。不同版本或团队配置可能使用不同的 Skills 目录，请以当前客户端说明为准。
 
 ### 豆包
 
-豆包电脑端具备自己的 `.skills` 工作区机制，文件格式同样以 `SKILL.md` 为核心。不要只导入最外层的总入口：必须让九个 Skill 都出现在豆包的 Skills 目录或“规则和技能”列表中，否则总入口无法稳定接续八个专项 Skill。
+豆包电脑端具备自己的 `.skills` 工作区机制，文件格式同样以 `SKILL.md` 为核心。不要只导入“人类最强编导”：必须让九个 Skill 都出现在豆包的 Skills 目录或“规则和技能”列表中，否则账号定位、选题、脚本等功能可能无法被正确使用。
 
-豆包版本和工作区形态更新较快，本仓库暂不写死本机目录。通过 SkillHub 安装后，请先确认列表中是否能看到 `human-best-video-director` 与八个 `hbvd-*` Skill；如果平台只注册了根目录的一个 Skill，这属于部分适配，需要把九个目录分别导入。
+豆包版本和工作区形态更新较快，本仓库暂不写死本机目录。通过 SkillHub 安装后，请先确认列表中是否能看到 `human-best-video-director` 与八个 `hbvd-*` Skill；如果只看到一个，请把九个目录分别导入。
 
 ### TRAE
 
@@ -400,7 +400,7 @@ mkdir -p .trae/skills
 cp -R human-best-video-director hbvd-* .trae/skills/
 ```
 
-然后在 TRAE 的“规则和技能”中检查九个 Skill 是否都被索引。TRAE 的调用显示和语法可能与 Codex 的 `$skill-name` 不同；只要九个 Skill 均可被发现，Agent 可以按各自的名称和描述完成路由。如果当前版本只读取单个 Skill，需视为部分适配，不能假定总入口已完成跨 Skill 调度。
+然后在 TRAE 的“规则和技能”中检查九个 Skill 是否都能看到。TRAE 的使用方式可能与 Codex 的 `$skill-name` 不同，请按当前版本显示的方式调用。如果只看到一个 Skill，账号定位、选题和脚本等功能之间可能无法自动衔接。
 
 ### 兼容性怎么判断
 
@@ -408,13 +408,13 @@ cp -R human-best-video-director hbvd-* .trae/skills/
 |---|---|---|
 | Codex | 完整适配，已作为主要测试环境 | 九个 Skill 均出现在可用列表 |
 | Claude Code | 完整适配 `SKILL.md` 与多 Skill 安装 | 九个目录一起复制到 Skills 目录 |
-| 豆包电脑端 | 格式适配；不同版本的导入与子 Skill 注册方式需实机确认 | 列表中同时出现总入口和八个专项 Skill |
-| TRAE | 支持 `.trae/skills`；跨 Skill 调度按当前版本实测 | 九个 Skill 均被索引，再测试一次起号或脚本任务 |
-| 普通聊天模型 | 只能把内容当提示词或知识文件使用 | 不算原生 Skill 兼容，也没有可靠自动路由 |
+| 豆包电脑端 | 支持同类文件格式；安装方式随版本变化 | 列表中能看到全部九个 Skill |
+| TRAE | 支持 `.trae/skills`，具体使用方式随版本变化 | 列表中能看到全部九个 Skill，再测试一次起号或脚本任务 |
+| 普通聊天模型 | 只能把内容当提示词或知识文件使用 | 不会自动选择和衔接九个 Skill |
 
 ### 其他支持 `SKILL.md` 的 Agent
 
-把仓库中的九个 Skill 文件夹复制到该 Agent 的 Skills 搜索目录。判断是否完整适配，不只看它能不能读 `SKILL.md`，还要看九个 Skill 能否被独立发现，以及总入口能否接续专项 Skill。如果客户端不支持 `$skill-name` 语法，请使用它自己的调用方式。
+把仓库中的九个 Skill 文件夹复制到该 Agent 的 Skills 目录。安装后确认九个 Skill 都能看到，并用一次完整任务检查它能否从需求澄清继续做到选题或脚本。如果客户端不支持 `$skill-name` 语法，请使用它自己的调用方式。
 
 ### 更新
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "编导能力训练"
-  short_description: "用真实任务和前后对照训练需求判断画面表达节奏与素材调用能力"
-  default_prompt: "使用 $hbvd-training 为我制定一轮可验证的编导能力训练。"
+  short_description: "围绕真实内容任务重做和对照训练需求判断画面表达节奏与素材使用能力"
+  default_prompt: "使用 $hbvd-training，围绕一个真实任务帮我训练并验证编导能力。"

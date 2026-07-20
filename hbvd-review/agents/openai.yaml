@@ -1,4 +1,4 @@
 interface:
   display_name: "发布复盘与诊断"
-  short_description: "区分事实假设相关性与因果关系并设计单变量内容验证实验"
-  default_prompt: "使用 $hbvd-review 诊断我的内容数据并给出下一轮验证。"
+  short_description: "根据原内容和真实数据区分事实与猜测找出下一条最值得验证的改动"
+  default_prompt: "使用 $hbvd-review，分析这条内容和数据，并告诉我下一条最值得改什么。"

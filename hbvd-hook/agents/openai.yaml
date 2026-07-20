@@ -1,4 +1,4 @@
 interface:
   display_name: "钩子与内容承诺"
-  short_description: "让标题封面首屏真实证据正文推进和最终回报形成兑现闭环"
-  default_prompt: "使用 $hbvd-hook 为已确认的内容设计可兑现的开头。"
+  short_description: "让标题封面第一句话第一画面和正文承诺一致并由真实内容兑现"
+  default_prompt: "使用 $hbvd-hook，为这条内容设计一个正文能够兑现的标题和开头。"

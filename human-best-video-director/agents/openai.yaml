@@ -1,4 +1,4 @@
 interface:
   display_name: "人类最强编导"
-  short_description: "把泛化需求编译成任务合同再编排专项流程完成并验收短视频交付"
-  default_prompt: "使用 $human-best-video-director 把我的需求编译成可执行任务，再调用合适的专项 Skill 完成交付。"
+  short_description: "先问清真正需求，再完成账号定位个人IP选题钩子脚本或发布复盘"
+  default_prompt: "使用 $human-best-video-director，先理解我的真实需求，再完成这次内容任务。"
