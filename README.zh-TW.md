@@ -432,8 +432,10 @@ flowchart LR
 倉庫公開後，可以透過官方 Skills CLI 直接安裝。執行命令後，按提示選擇需要的 Skill 和 Agent：
 
 ```bash
-npx -y skills add Eliotcute/human-best-video-director
+npx -y skills add Eliotcute/human-best-video-director -g
 ```
+
+`-g` 表示安裝到目前使用者的全域 Skills 目錄，不會在倉庫裡產生 `.agents/` 和 `skills-lock.json`。
 
 也可以先只查看倉庫中可用的 Skill，不執行安裝：
 

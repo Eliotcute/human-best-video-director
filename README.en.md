@@ -433,8 +433,10 @@ Poor numbers do not automatically mean throttling or a bad topic. The review sep
 Once the repository is public, install it directly with the official Skills CLI. The command lets you choose the Skills and target agent:
 
 ```bash
-npx -y skills add Eliotcute/human-best-video-director
+npx -y skills add Eliotcute/human-best-video-director -g
 ```
+
+The `-g` flag installs into the current user's global Skills directory, so it does not create `.agents/` or `skills-lock.json` inside the repository.
 
 To inspect the Skills without installing them:
 
