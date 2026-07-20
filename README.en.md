@@ -2,11 +2,24 @@
 
 [简体中文](README.md) | English | [繁體中文](README.zh-TW.md)
 
-A Chinese-first set of director Skills that clarifies the problem before creating the content.
+A Chinese-first set of director Skills for content creators, social media operators, personal brands, founders, and small teams.
 
-Use it for account positioning, personal IP, topic selection, titles, spoken scripts, production plans, and post-publication reviews. If all you say is “help me start an account,” it will not bury you in generic ideas. It first checks what matters, asks no more than three useful questions, and then continues the work.
+It covers the full path from “who should this account serve?” to “how should this post be produced?” and “what should change after publication?” Use it for account positioning, personal IP, topic decisions, titles and openings, spoken scripts, production plans, and post-publication reviews.
+
+This is not a writing template that turns every topic into instant copy. When a request is vague, it first checks the audience, purpose, real source material, and production constraints. If a missing fact would change the result, it asks no more than three useful questions and then continues the task.
 
 Current version: `v1.1.0` · 9 Skills · [CC BY-NC 4.0](LICENSE)
+
+## Who is it for?
+
+- **Content creators and bloggers** who want to turn loose ideas into publishable topics, openings, scripts, and production plans.
+- **Social media operators** who need to position a new account, plan the first posts, and decide what to change from real performance data.
+- **Personal brands and knowledge creators** who want a sustainable content direction grounded in real experience, ability, and point of view.
+- **Founders and brand leads** who need to turn products, business decisions, and founder stories into content people can understand and trust.
+- **Faceless or low-budget creators** who need workable plans built around screen recordings, real footage, documents, voice-over, and limited crew.
+- **People training as directors** who want to improve audience judgment, topic choice, visual thinking, pacing, and use of source material through real tasks.
+
+If you only need a sentence polished, a general writing tool is enough. This project is for work that requires a sound direction before the content is made.
 
 ## Start with an example
 
