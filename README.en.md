@@ -6,7 +6,7 @@ A Chinese-first set of director Skills that clarifies the problem before creatin
 
 Use it for account positioning, personal IP, topic selection, titles, spoken scripts, production plans, and post-publication reviews. If all you say is “help me start an account,” it will not bury you in generic ideas. It first checks what matters, asks no more than three useful questions, and then continues the work.
 
-Current version: `v1.0.0` · 9 Skills · [CC BY-NC 4.0](LICENSE)
+Current version: `v1.1.0` · 9 Skills · [CC BY-NC 4.0](LICENSE)
 
 ## Start with an example
 
@@ -168,6 +168,148 @@ and the title, cover, and full content: ...
 Tell me what the evidence supports, what remains unknown, and the one thing to change next.
 ```
 
+## What the answer may look like
+
+The following excerpts are shortened examples. Real answers are rebuilt from your business, materials, and production limits.
+
+### When important information is missing
+
+You say:
+
+```text
+I want to build a personal IP in real estate. Help me plan it.
+```
+
+Instead of inventing a persona, it should answer like this:
+
+```text
+I cannot choose a reliable character direction yet. Your actual business, the people who need to trust you, and whether you will appear on camera would all change the plan. Please tell me:
+
+1. Do you mainly sell property, provide consulting, or run a real-estate business?
+2. Who do you want to attract, and what makes them distrust this industry or your offer?
+3. Will you appear on camera, and what real experience, cases, or on-site material do you have?
+```
+
+### When choosing a launch topic
+
+If you have explained that you create AIGC content, understand commercial execution, have a real workflow, and prefer faceless production, it may propose:
+
+```text
+Publish this first: I used AI to generate 30 Xiaohongshu drafts, but only 4 were worth publishing.
+
+Why this one:
+It shows both AI execution and editorial judgment. The audience does not need to know you beforehand.
+
+Prepare before shooting:
+- A real list or thumbnail view of the 30 drafts
+- The criteria used to reject drafts
+- Before-and-after comparisons for the 4 retained drafts
+
+If you cannot show this process, do not put “30” and “4” in the title.
+```
+
+### When writing a script
+
+For “The sales office says the metro is 800 meters away, so I walked it during rush hour,” an excerpt may look like:
+
+```text
+0–5 seconds
+Visual: “800 meters” on the sales material, then the final phone timer.
+Voice-over: The sales office says the metro is only 800 meters away. At 6:30 p.m. on Monday, I walked the route at a real commuting time. It took 【measured minutes】 minutes.
+
+5–12 seconds
+Visual: Actual property exit, map route, and metro entrance number.
+Voice-over: I started at 【actual starting point】. The destination is not the metro icon on the map; it is 【entrance name】, where you can actually enter the station.
+
+Must capture: start time, actual exit, full route, crossings or detours, entrance number, and stopped timer.
+```
+
+Unknown distance, time, and route results remain as placeholders until you measure them.
+
+### When reviewing performance
+
+If you provide the averages from the previous 10 posts, this post's data, and the full content, the answer should separate the evidence:
+
+```text
+What we know: three-second retention is below the account's recent average, so the first problem appears before the body begins.
+
+Priority hypothesis: the cover promises a real commute time, but the first visual introduces the property instead of showing the measurement.
+
+What we cannot conclude: one post does not prove platform throttling or that the entire field-test direction has failed.
+
+Change one thing next: show the final timer in the first visual and keep the rest of the script unchanged.
+```
+
+### What the other specialists return
+
+Account positioning should produce something operational, not a vague “warm personal brand”:
+
+```text
+Account direction: test the commuting and living costs that first-time home buyers cannot see in property advertising.
+Reason to follow: every post walks, measures, or verifies one claim for the viewer.
+First test: publish 3 commute field tests and watch whether viewers ask about specific properties and routes.
+```
+
+Personal IP connects real behavior to the trust the audience needs:
+
+```text
+Character focus: not a “successful founder,” but the bakery owner who personally checks ingredients and bake times every morning.
+Source of trust: real preparation, how failed batches are handled, and why same-day production matters.
+First story: how one product that should have been discarded became today's quality rule.
+```
+
+The hook specialist returns one set of elements that can all be fulfilled by the body:
+
+```text
+Title: The sales office says the metro is 800 meters away. I walked it during Monday rush hour.
+Cover: How long does 800 meters really take?
+First sentence: Ignore the map distance for a moment. This is the time from the actual property exit to the station gate.
+First visual: the final phone timer.
+```
+
+Training uses a real task instead of prescribing “watch 100 videos every day”:
+
+```text
+Train one thing: turn an abstract audience into a concrete situation.
+Original task: explain metro distance to home buyers.
+Rewrite: list the route concerns of a rush-hour commuter, a family with children, and a night-shift worker.
+Pass condition: each person can state what problem this post solves for them.
+```
+
+## Frequently asked questions
+
+### Which Skill should I use first?
+
+Use `$human-best-video-director`. It decides where to start from the result you want now.
+
+### Can I start with one vague sentence?
+
+Yes. It asks no more than three questions that would change the plan. If you do not want to answer, ask it to proceed with the current information; it should state its assumptions and give one provisional version.
+
+### Why does it sometimes ask questions instead of writing immediately?
+
+Audience, evidence, and production limits can completely change the direction. The questions prevent invented context; they are not a fixed questionnaire.
+
+### Can I request positioning, a topic, and a script at once?
+
+Yes. When the information is sufficient, it continues through the required stages in one response. It pauses only when a missing fact would make the later work unreliable.
+
+### If I already have a topic, will it restart account positioning?
+
+No. A clear script request should use the existing topic and context without expanding the task.
+
+### Can it review content without analytics?
+
+It can review the draft, but it should not pretend to perform data attribution. It can inspect the title, opening, structure, evidence, and reason to follow, while naming what still requires publication data.
+
+### How do I revise an answer that does not match my style?
+
+Give a specific change: “make it more conversational,” “remove industry jargon,” “cut it to 45 seconds,” or “keep the structure and rewrite only the opening.” You do not need to repeat the entire background.
+
+### Does it fetch live trends or publish for me?
+
+Not by default. It does not connect to your platform backend, scrape live data, or publish on your behalf. Provide trend material, account data, or platform rules when you want them included in the judgment.
+
 ## What information helps?
 
 You do not need to fill out a questionnaire. Share what you know. These details are usually the most useful:
@@ -218,7 +360,7 @@ Poor numbers do not automatically mean throttling or a bad topic. The review sep
 
 ### Codex
 
-This repository is currently private. Use an authorized GitHub account:
+The repository is public and can be cloned directly:
 
 ```bash
 gh auth login
