@@ -2,7 +2,7 @@
 
 简体中文 | [English](README.en.md) | [繁體中文](README.zh-TW.md)
 
-[![Version](https://img.shields.io/badge/version-1.1.1-2563eb)](#)
+[![Version](https://img.shields.io/badge/version-1.1.2-2563eb)](#)
 [![skills.sh](https://skills.sh/b/Eliotcute/human-best-video-director)](https://skills.sh/Eliotcute/human-best-video-director)
 [![License](https://img.shields.io/badge/license-CC_BY--NC_4.0-16a34a)](LICENSE)
 [![X](https://img.shields.io/badge/X-%40shizhieliot-000000?logo=x&logoColor=white)](https://x.com/shizhieliot)
@@ -15,7 +15,7 @@
 
 它不是一个收到主题就立刻生成文案的写作模板。面对模糊需求时，它会先判断目标用户、内容目的、真实素材和制作条件是否足够；缺少的信息确实会改变结果时，最多问三个问题，然后继续完成任务。
 
-当前版本：`v1.1.1` · 9 个 Skills · [CC BY-NC 4.0](LICENSE)
+当前版本：`v1.1.2` · 9 个 Skills · [CC BY-NC 4.0](LICENSE)
 
 ## 适合谁使用
 

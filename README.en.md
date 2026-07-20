@@ -2,7 +2,7 @@
 
 [简体中文](README.md) | English | [繁體中文](README.zh-TW.md)
 
-[![Version](https://img.shields.io/badge/version-1.1.1-2563eb)](#)
+[![Version](https://img.shields.io/badge/version-1.1.2-2563eb)](#)
 [![skills.sh](https://skills.sh/b/Eliotcute/human-best-video-director)](https://skills.sh/Eliotcute/human-best-video-director)
 [![License](https://img.shields.io/badge/license-CC_BY--NC_4.0-16a34a)](LICENSE)
 [![X](https://img.shields.io/badge/X-%40shizhieliot-000000?logo=x&logoColor=white)](https://x.com/shizhieliot)
@@ -15,7 +15,7 @@ It covers the full path from “who should this account serve?” to “how shou
 
 This is not a writing template that turns every topic into instant copy. When a request is vague, it first checks the audience, purpose, real source material, and production constraints. If a missing fact would change the result, it asks no more than three useful questions and then continues the task.
 
-Current version: `v1.1.1` · 9 Skills · [CC BY-NC 4.0](LICENSE)
+Current version: `v1.1.2` · 9 Skills · [CC BY-NC 4.0](LICENSE)
 
 ## Who is it for?
 
