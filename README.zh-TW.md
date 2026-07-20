@@ -2,6 +2,13 @@
 
 [简体中文](README.md) | [English](README.en.md) | 繁體中文
 
+[![Version](https://img.shields.io/badge/version-1.1.0-2563eb)](#)
+[![skills.sh](https://skills.sh/b/Eliotcute/human-best-video-director)](https://skills.sh/Eliotcute/human-best-video-director)
+[![License](https://img.shields.io/badge/license-CC_BY--NC_4.0-16a34a)](LICENSE)
+[![X](https://img.shields.io/badge/X-%40shizhieliot-000000?logo=x&logoColor=white)](https://x.com/shizhieliot)
+
+由 [Eliot](https://x.com/shizhieliot) 建立。
+
 一套面向內容創作者、新媒體營運、個人 IP、創辦人和小型團隊的中文編導 Skills。
 
 它處理從「這個帳號應該做給誰看」，到「這一條具體怎麼拍」，再到「發布後下一條應該改什麼」的完整內容流程。你可以用它做帳號定位、個人 IP、選題判斷、標題與開頭、口播稿、拍攝方案和發布後複盤。
@@ -20,6 +27,59 @@
 - **正在訓練編導能力的人**：用真實任務反覆練習需求判斷、選題、畫面、節奏和素材使用。
 
 如果你只想把一句話潤飾得更順，一般寫作工具已經足夠。這個專案更適合需要先判斷方向，再把內容真正做出來的人。
+
+## 專案結構
+
+專案由一個統一入口和八個專項 Skill 組成。統一入口負責理解需求、選擇這次需要的 Skill、保存已確認的資訊，並把各階段結果整合成一份最終交付；專項 Skill 各自只處理一個明確問題。
+
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"background":"#ffffff","primaryColor":"#eef5ff","primaryTextColor":"#172033","primaryBorderColor":"#7aa7e8","lineColor":"#8290a3","secondaryColor":"#f7f9fc","tertiaryColor":"#ffffff","fontFamily":"-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"},"flowchart":{"curve":"basis"}}}%%
+flowchart TB
+    U(["使用者的內容需求"]) --> M["human-best-video-director<br/>統一入口<br/>理解需求 · 選擇路徑 · 整合驗收"]
+
+    M -- "資訊不足" --> I["hbvd-intake<br/>需求釐清<br/>最多 3 個關鍵問題"]
+    I -- "補齊關鍵資訊" --> M
+
+    M -- "帳號與人物" --> A["hbvd-account<br/>帳號定位與起號<br/>目標使用者 · 關注理由 · 內容支柱"]
+    M --> P["hbvd-ip<br/>個人 IP 與創辦人故事<br/>真實資格 · 信任來源 · 人物表達"]
+    M -- "內容決策" --> T["hbvd-topic<br/>選題決策<br/>首選選題 · 真實證據 · 驗證條件"]
+    M --> H["hbvd-hook<br/>標題與開頭<br/>標題 · 封面 · 第一句 · 第一畫面"]
+    M -- "製作" --> S["hbvd-script<br/>腳本與製作<br/>文案 · 時間軸 · 鏡頭 · 拍攝清單"]
+    M -- "回饋與成長" --> V["hbvd-review<br/>審稿與內容複盤<br/>事實 · 主要問題 · 下一輪改動"]
+    M --> C["hbvd-training<br/>編導訓練<br/>真實任務 · 前後對照 · 驗收標準"]
+
+    A --> P
+    A --> T
+    P --> T
+    P --> S
+    T --> H
+    T --> S
+    H --> S
+    V -. "問題回到對應環節" .-> T
+    V -.-> H
+    V -.-> S
+    C -. "訓練薄弱能力" .-> A
+    C -.-> T
+    C -.-> H
+    C -.-> S
+
+    A --> O["統一交付<br/>能直接使用 · 符合事實 · 滿足製作限制"]
+    P --> O
+    T --> O
+    H --> O
+    S --> O
+    V --> O
+    C --> O
+    O --> Z(["完成這次任務"])
+
+    classDef main fill:#eef5ff,stroke:#7aa7e8,color:#172033,stroke-width:1.5px;
+    classDef plain fill:#ffffff,stroke:#aab4c3,color:#172033,stroke-width:1.2px;
+    classDef branch fill:#f7f9fc,stroke:#aab4c3,color:#172033,stroke-width:1.2px;
+    class U,M,O,Z main;
+    class I,A,P,T,H,S,V,C branch;
+```
+
+實線表示常見的內容生產順序，虛線表示複盤或訓練後回到具體環節。使用者通常只需要使用統一入口，不需要自己安排這八個 Skill 的順序。
 
 ## 先看一個例子
 
@@ -89,18 +149,15 @@ flowchart LR
     G -- "不夠" --> Q["最多問 3 個<br/>關鍵問題"]
     Q --> G
     G -- "夠了" --> B["整理這次任務"]
-
     B --> R{"這次要做什麼？"}
     R --> A["帳號定位<br/>個人 IP<br/>選題"]
     R --> C["標題開頭<br/>腳本拍攝"]
     R --> D["審稿<br/>數據複盤"]
     R --> T["編導訓練"]
-
-    A --> H["沿用前面已確認的資訊"]
-    C --> H
-    D --> H
-    T --> H
-    H --> O["整理成一份能直接使用的結果"]
+    A --> O["整理成一份能直接使用的結果"]
+    C --> O
+    D --> O
+    T --> O
     O --> V{"符合你最初的目標嗎？"}
     V -- "還不夠" --> R
     V -- "符合" --> Z(["完成"])
@@ -108,12 +165,12 @@ flowchart LR
     classDef main fill:#eef5ff,stroke:#7aa7e8,color:#172033,stroke-width:1.5px;
     classDef plain fill:#ffffff,stroke:#aab4c3,color:#172033,stroke-width:1.2px;
     classDef branch fill:#f7f9fc,stroke:#aab4c3,color:#172033,stroke-width:1.2px;
-    class U,B,H,O,Z main;
+    class U,B,O,Z main;
     class G,R,V plain;
     class Q,A,C,D,T branch;
 ```
 
-簡單來說，它會在內部記住你已經說過的事實、素材和限制。後面的 Skill 直接接著這些資訊工作，不應該重複問你同樣的問題。
+它會沿用你已經說過的事實、素材和限制，後面的 Skill 不應該重複問同樣的問題。
 
 ## 常見用法
 
@@ -369,6 +426,20 @@ flowchart LR
 一條內容數據不好，不等於被限流，也不一定是選題錯了。它會把已經發生的事實和暫時的猜測分開，再決定下一條只改一個主要地方。
 
 ## 安裝
+
+### skills.sh
+
+倉庫公開後，可以透過官方 Skills CLI 直接安裝。執行命令後，按提示選擇需要的 Skill 和 Agent：
+
+```bash
+npx -y skills add Eliotcute/human-best-video-director
+```
+
+也可以先只查看倉庫中可用的 Skill，不執行安裝：
+
+```bash
+npx -y skills add Eliotcute/human-best-video-director --list
+```
 
 ### Codex
 

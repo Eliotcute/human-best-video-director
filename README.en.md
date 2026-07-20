@@ -2,6 +2,13 @@
 
 [简体中文](README.md) | English | [繁體中文](README.zh-TW.md)
 
+[![Version](https://img.shields.io/badge/version-1.1.0-2563eb)](#)
+[![skills.sh](https://skills.sh/b/Eliotcute/human-best-video-director)](https://skills.sh/Eliotcute/human-best-video-director)
+[![License](https://img.shields.io/badge/license-CC_BY--NC_4.0-16a34a)](LICENSE)
+[![X](https://img.shields.io/badge/X-%40shizhieliot-000000?logo=x&logoColor=white)](https://x.com/shizhieliot)
+
+Created by [Eliot](https://x.com/shizhieliot).
+
 A Chinese-first set of director Skills for content creators, social media operators, personal brands, founders, and small teams.
 
 It covers the full path from “who should this account serve?” to “how should this post be produced?” and “what should change after publication?” Use it for account positioning, personal IP, topic decisions, titles and openings, spoken scripts, production plans, and post-publication reviews.
@@ -20,6 +27,59 @@ Current version: `v1.1.0` · 9 Skills · [CC BY-NC 4.0](LICENSE)
 - **People training as directors** who want to improve audience judgment, topic choice, visual thinking, pacing, and use of source material through real tasks.
 
 If you only need a sentence polished, a general writing tool is enough. This project is for work that requires a sound direction before the content is made.
+
+## Project architecture
+
+The project contains one main entry point and eight specialist Skills. The main Skill understands the request, selects the Skills required for the task, keeps confirmed context, and combines the results into one final delivery. Each specialist handles one clearly defined problem.
+
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"background":"#ffffff","primaryColor":"#eef5ff","primaryTextColor":"#172033","primaryBorderColor":"#7aa7e8","lineColor":"#8290a3","secondaryColor":"#f7f9fc","tertiaryColor":"#ffffff","fontFamily":"-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"},"flowchart":{"curve":"basis"}}}%%
+flowchart TB
+    U(["User content request"]) --> M["human-best-video-director<br/>Main entry<br/>Understand · Select · Integrate · Validate"]
+
+    M -- "Missing context" --> I["hbvd-intake<br/>Clarify the request<br/>Up to 3 key questions"]
+    I -- "Return key facts" --> M
+
+    M -- "Account and identity" --> A["hbvd-account<br/>Account positioning and launch<br/>Audience · Follow reason · Content pillars"]
+    M --> P["hbvd-ip<br/>Personal IP and founder story<br/>Real credentials · Trust · Character expression"]
+    M -- "Content decisions" --> T["hbvd-topic<br/>Topic decision<br/>Best topic · Evidence · Validation conditions"]
+    M --> H["hbvd-hook<br/>Title and opening<br/>Title · Cover · First line · First visual"]
+    M -- "Production" --> S["hbvd-script<br/>Script and production<br/>Copy · Timeline · Shots · Production list"]
+    M -- "Feedback and growth" --> V["hbvd-review<br/>Draft and performance review<br/>Facts · Main issue · Next change"]
+    M --> C["hbvd-training<br/>Director training<br/>Real task · Before/after · Acceptance criteria"]
+
+    A --> P
+    A --> T
+    P --> T
+    P --> S
+    T --> H
+    T --> S
+    H --> S
+    V -. "Return the issue to its stage" .-> T
+    V -.-> H
+    V -.-> S
+    C -. "Train a weak capability" .-> A
+    C -.-> T
+    C -.-> H
+    C -.-> S
+
+    A --> O["Unified delivery<br/>Usable · Factual · Producible"]
+    P --> O
+    T --> O
+    H --> O
+    S --> O
+    V --> O
+    C --> O
+    O --> Z(["Task complete"])
+
+    classDef main fill:#eef5ff,stroke:#7aa7e8,color:#172033,stroke-width:1.5px;
+    classDef plain fill:#ffffff,stroke:#aab4c3,color:#172033,stroke-width:1.2px;
+    classDef branch fill:#f7f9fc,stroke:#aab4c3,color:#172033,stroke-width:1.2px;
+    class U,M,O,Z main;
+    class I,A,P,T,H,S,V,C branch;
+```
+
+Solid arrows show common production dependencies. Dashed arrows show review or training returning to a specific stage. Most users only need the main entry point and do not need to arrange the eight Skills themselves.
 
 ## Start with an example
 
@@ -89,18 +149,15 @@ flowchart LR
     G -- "No" --> Q["Ask up to 3<br/>useful questions"]
     Q --> G
     G -- "Yes" --> B["Organize this task"]
-
     B --> R{"What needs to be done?"}
     R --> A["Account<br/>Personal IP<br/>Topic"]
     R --> C["Title and opening<br/>Script and production"]
     R --> D["Draft review<br/>Data review"]
     R --> T["Director training"]
-
-    A --> H["Keep confirmed facts<br/>and constraints"]
-    C --> H
-    D --> H
-    T --> H
-    H --> O["Turn the work into<br/>one usable result"]
+    A --> O["Turn the work into<br/>one usable result"]
+    C --> O
+    D --> O
+    T --> O
     O --> V{"Does it answer the original need?"}
     V -- "Not yet" --> R
     V -- "Yes" --> Z(["Done"])
@@ -108,12 +165,12 @@ flowchart LR
     classDef main fill:#eef5ff,stroke:#7aa7e8,color:#172033,stroke-width:1.5px;
     classDef plain fill:#ffffff,stroke:#aab4c3,color:#172033,stroke-width:1.2px;
     classDef branch fill:#f7f9fc,stroke:#aab4c3,color:#172033,stroke-width:1.2px;
-    class U,B,H,O,Z main;
+    class U,B,O,Z main;
     class G,R,V plain;
     class Q,A,C,D,T branch;
 ```
 
-The Skills keep track of facts, materials, and constraints already provided in the conversation. A later specialist continues from that context instead of asking the same questions again.
+The Skills keep the facts, materials, and constraints already provided, so later stages should not ask the same questions again.
 
 ## Common ways to use it
 
@@ -370,6 +427,20 @@ Crew size, camera preference, available footage, budget, and time all change the
 Poor numbers do not automatically mean throttling or a bad topic. The review separates observed facts from possible explanations, then chooses one major change for the next test.
 
 ## Installation
+
+### skills.sh
+
+Once the repository is public, install it directly with the official Skills CLI. The command lets you choose the Skills and target agent:
+
+```bash
+npx -y skills add Eliotcute/human-best-video-director
+```
+
+To inspect the Skills without installing them:
+
+```bash
+npx -y skills add Eliotcute/human-best-video-director --list
+```
 
 ### Codex
 
